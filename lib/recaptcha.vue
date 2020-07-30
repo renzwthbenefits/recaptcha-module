@@ -1,7 +1,7 @@
 <template>
   <div
-    :data-sitekey="$recaptcha.siteKey"
-    :data-size="$recaptcha.size || dataSize"
+    :data-sitekey="$recaptcha2.siteKey"
+    :data-size="$recaptcha2.size || dataSize"
     :data-theme="dataTheme"
     :data-badge="dataBadge"
     :data-tabindex="dataTabindex"
@@ -16,7 +16,7 @@
 <script>
 export default {
   beforeDestroy () {
-    this.$recaptcha.destroy()
+    this.$recaptcha2.destroy()
   },
 
   methods: {
@@ -34,11 +34,11 @@ export default {
   },
 
   mounted () {
-    this.$recaptcha.init()
+    this.$recaptcha2.init()
 
-    this.$recaptcha.on('recaptcha-error', this.onError)
-    this.$recaptcha.on('recaptcha-success', this.onSuccess)
-    this.$recaptcha.on('recaptcha-expired', this.onExpired)
+    this.$recaptcha2.on('recaptcha-error', this.onError)
+    this.$recaptcha2.on('recaptcha-success', this.onSuccess)
+    this.$recaptcha2.on('recaptcha-expired', this.onExpired)
   },
 
   props: {
